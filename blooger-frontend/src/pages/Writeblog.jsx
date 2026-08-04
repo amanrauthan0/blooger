@@ -6,7 +6,7 @@ import ReactModal from 'react-modal'
 
 export function Writeblog() {
 
-  const{markdown}=UseMarkdown();
+  const{markdown,setMarkdown}=UseMarkdown();
 
   const[isModal,setisModal]=useState(false);
   const[blogTitle,setblogTitle]=useState("");
@@ -87,6 +87,7 @@ export function Writeblog() {
                   postblog();
                   setisModal(false);
                   setblogTitle("");
+                  setMarkdown("")
                 }}
               >
                 Create

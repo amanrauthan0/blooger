@@ -3,9 +3,8 @@ import config from "../config/config.js";
 import blogModel from "../models/blog.model.js";
 
 export async function getuserpost(req,res){
-    const refreshToken=req.cookies.refreshToken;
 
-    console.log(refreshToken);
+    const refreshToken=req.cookies.refreshToken;
 
     if (!refreshToken) {
         return res.status(401).json({
@@ -17,12 +16,13 @@ export async function getuserpost(req,res){
     
     const blogs=await blogModel.find({
         author:decode.id
-    })
+    }).sort({createdAt:-1});
+
+    
 
     res.status(200).json({
         blogs
     })
-
 
 }
 

@@ -25,8 +25,6 @@ export function AuthProvider({ children }) {
             setAccessToken(data.accessToken);
             setUser(data.user)
             
-            console.log(data.user)
-
         }catch(err){
             console.log(err.message);
         }finally {
@@ -36,7 +34,6 @@ export function AuthProvider({ children }) {
 
     async function logout(){
         try{
-            console.log("hello")
             await fetch("http://localhost:3000/api/auth/logout",{
                 method:"GET",
                 credentials:"include"
