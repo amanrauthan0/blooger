@@ -4,12 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Profile() {
   const navigate=useNavigate();
-  const { user, logout, loading} = useAuth();
+  const { user, logout, loading } = useAuth();
   
   useEffect(()=>{
     if(!loading && !user){
       console.log("no user")
-      navigate("/register")
+      navigate("/login")
     }
   },[user,navigate,loading]);
 
@@ -71,8 +71,8 @@ export default function Profile() {
 
             <button
               onClick={()=>{
-                logout;
-                navigate("/login")
+                logout();
+                navigate("/register")
               }}
               className="ml-auto bg-red-600 hover:bg-red-700 px-5 py-3 rounded-lg font-semibold transition"
             >

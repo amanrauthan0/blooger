@@ -43,7 +43,6 @@ export default function Login() {
       setAccessToken(data.accessToken);
       setLoading(false);
 
-
       navigate("/");
 
     } catch (err) {
@@ -110,7 +109,7 @@ export default function Login() {
           <p className="text-slate-400">
             Don't have an account?
             <Link
-              to="/register"
+              to="/login"
               className="ml-2 font-medium text-blue-400 hover:text-blue-300"
             >
               Register

@@ -167,6 +167,9 @@ export async function refreshToken(req,res){
     }
     const decode=jwt.verify(refreshToken,config.JWT_SECRET);
 
+    const user=await userModel.findById(decode.id);
+
+
     const refreshTokenHash=crypto.createHash("sha256").update(refreshToken).digest("hex");
 
     const session=await sessionModel.findOne({
@@ -208,7 +211,11 @@ export async function refreshToken(req,res){
 
    res.status(201).json({
     message:"token refreshed",
-    accessToken
+       user: {
+            username:user.username,
+            email:user.email
+        },
+        accessToken
    })
 }
 

@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import Editor from '../components/Editor'
 import Preview from '../components/Preview'
-import { MarkdownProvider } from '../context/UseMarkdown'
+import { MarkdownProvider, UseMarkdown } from '../context/UseMarkdown'
 import ReactModal from 'react-modal'
 
 export function Writeblog() {
+
+  const{markdown}=UseMarkdown();
 
   const[isModal,setisModal]=useState(false);
   const[blogTitle,setblogTitle]=useState("");
@@ -12,10 +14,24 @@ export function Writeblog() {
   function OpenModal(){
     setisModal(true);
   }
+
+  async function postblog(){
+    const res=await fetch("http://localhost:3000/api/blog/postblog",{
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method:"POST",
+      credentials:"include",
+      body:JSON.stringify({
+        title:blogTitle,
+        content:markdown
+      })
+    })
+  }
+
   return (
-      <MarkdownProvider> 
       <div className="flex h-screen">
-        <Editor/>
+       <Editor/>
        <Preview />
        <button className='bg-amber-300  flex ' 
        onClick={
@@ -23,6 +39,7 @@ export function Writeblog() {
 
        <ReactModal 
        isOpen={isModal}
+       ariaHideApp={false}
        style={{
         overlay: {
           backgroundColor: "rgba(0,0,0,0.8)",
@@ -67,7 +84,7 @@ export function Writeblog() {
             }}>
               <button
                 onClick={() => {
-                  console.log(blogTitle);
+                  postblog();
                   setisModal(false);
                   setblogTitle("");
                 }}
@@ -77,6 +94,7 @@ export function Writeblog() {
 
               <button 
               onClick={() => {
+                console.log(markdown);
                 setisModal(false);
                 setblogTitle("");
               }}>
@@ -84,10 +102,7 @@ export function Writeblog() {
               </button>
               </div>
        </ReactModal>
-      </div>
-      
-     </MarkdownProvider>
-    
+      </div>    
     
   )
 }

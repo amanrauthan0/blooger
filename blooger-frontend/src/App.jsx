@@ -9,16 +9,33 @@ import {Home} from './pages/Home'
 import Register from './pages/register'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
+import { ProtectedRoutes } from './context/ProtectedRoutes'
+import { MarkdownProvider } from './context/UseMarkdown'
 function App() {
 
   return (
     <BrowserRouter>
     <Routes>
     <Route element={<Mainlayout/>}>
-     <Route path="/" element={<Home/>}/>
-     <Route path="/write"element={<Writeblog/>}/>
-     <Route path="/profile"element={<Profile/>}/>
+
+     <Route path="/" element={
+      <ProtectedRoutes>
+        <Home/>
+      </ProtectedRoutes>}/>
+
+     <Route path="/write"element={
+      <ProtectedRoutes>
+        <MarkdownProvider>
+        <Writeblog/>
+        </MarkdownProvider>
+      </ProtectedRoutes>}/>
+
+     <Route path="/profile"element={
+      <ProtectedRoutes>
+        <Profile/>
+      </ProtectedRoutes>}/>
     </Route>
+    
     <Route path='/register'element={<Register/>}/>
     <Route path='/login'element={<Login/>}/>
 
