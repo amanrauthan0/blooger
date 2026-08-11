@@ -11,6 +11,7 @@ import Login from './pages/Login'
 import Profile from './pages/Profile'
 import { ProtectedRoutes } from './context/ProtectedRoutes'
 import { MarkdownProvider } from './context/UseMarkdown'
+import BlogReader from './pages/BlogReader'
 function App() {
 
   return (
@@ -36,6 +37,7 @@ function App() {
       </ProtectedRoutes>}/>
     </Route>
     
+    <Route path="/blog/:id" element={<BlogReader />} />
     <Route path='/register'element={<Register/>}/>
     <Route path='/login'element={<Login/>}/>
 

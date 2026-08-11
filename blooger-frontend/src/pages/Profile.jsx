@@ -29,7 +29,6 @@ export default function Profile() {
       credentials:"include",
     })
     const data=await res.json();
-    console.log("helo",data);
     setBlogs(data.blogs);
   }
 
@@ -106,27 +105,31 @@ export default function Profile() {
 
       </div>
 
-      <div className="bg-slate-900 rounded-lg w-[800px] p-4">
+      <div className="bg-slate-900 rounded-lg w-200 p-4">
 
-      {blogs.length === 0 ?<h1 className="text-xl font-bold">No Content</h1>: blogs.map((blog) => (
+      {blogs.length === 0 ?<h1 className="text-xl font-bold">No Content</h1>: 
+        blogs.map((blog) => (
+          <Link key={blog._id}
+           to={`/blog/${blog._id}`}>
+            <div
+              key={blog._id}
+              className="border-b border-slate-700 py-4"
+            >
+              <h2 className="text-xl font-bold text-white">
+                {blog.title}
+              </h2>
 
-        <div
-          key={blog._id}
-          className="border-b border-slate-700 py-4"
-        >
-          <h2 className="text-xl font-bold text-white">
-            {blog.title}
-          </h2>
+              <p className="text-slate-400 mt-2">
+                {blog.content.slice(0, 150)}...
+              </p>
 
-          <p className="text-slate-400 mt-2">
-            {blog.content.slice(0, 150)}...
-          </p>
-
-          <p className="text-xs text-slate-500 mt-2 ">
-            {new Date(blog.createdAt).toLocaleDateString()}
-          </p>
-        </div>
-      ))}
+              <p className="text-xs text-slate-500 mt-2 ">
+                {new Date(blog.createdAt).toLocaleDateString()}
+              </p>
+            </div>
+          </Link>
+       ))
+      }
     </div>
     </div>
   );

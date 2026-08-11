@@ -18,8 +18,6 @@ export async function getuserpost(req,res){
         author:decode.id
     }).sort({createdAt:-1});
 
-    
-
     res.status(200).json({
         blogs
     })
@@ -53,4 +51,16 @@ export async function postblog(req,res){
     message:"published successfully"
    })
 
+}
+
+export async function getblog(req,res){
+    const blog= await blogModel.findById(req.params.id).populate("author","username");
+
+    if (!blog) {
+      return res.status(404).json({
+        message: "Blog not found",
+      });
+    }
+    console.log(blog)
+    res.status(200).json(blog);
 }
