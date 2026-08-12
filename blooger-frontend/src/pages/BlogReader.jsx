@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
@@ -17,10 +16,8 @@ export default function BlogReader() {
     );
 
     const data = await res.json();
-
-    console.log(data);
-
     setBlog(data);
+    
   }
 
   useEffect(() => {
