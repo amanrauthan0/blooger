@@ -1,28 +1,26 @@
-import { UseMarkdown } from "../context/UseMarkdown"
+import { UseMarkdown } from "../context/UseMarkdown";
 
-export default function Editor(){
-    const {markdown,setMarkdown}=UseMarkdown()
+export default function Editor() {
+  const { markdown, setMarkdown } = UseMarkdown();
 
-    return(
-        <>
-        <textarea name="markinput" 
-        className="
-        bg-slate-900
-        text-amber-50
-        w-1/2
+  return (
+    <textarea
+      value={markdown}
+      onChange={(e) => setMarkdown(e.target.value)}
+      placeholder="Start writing your story..."
+      className="
+        w-full
         h-full
-        p-4
-        border-r
+        bg-[#111816]
+        text-slate-200
+        placeholder:text-slate-700
+        p-7
         outline-none
         resize-none
         font-mono
-        "
-        value={markdown}
-        onChange={(e)=>setMarkdown(e.target.value)}
-        placeholder="Write your markdown here..."
-        >
-      </textarea>
-        
-        </>
-    )
+        text-[15px]
+        leading-7
+      "
+    />
+  );
 }

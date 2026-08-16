@@ -16,6 +16,8 @@ function App() {
 
   return (
     <BrowserRouter>
+
+    <MarkdownProvider>
     <Routes>
     <Route element={<Mainlayout/>}>
 
@@ -26,9 +28,7 @@ function App() {
 
      <Route path="/write"element={
       <ProtectedRoutes>
-        <MarkdownProvider>
         <Writeblog/>
-        </MarkdownProvider>
       </ProtectedRoutes>}/>
 
      <Route path="/profile"element={
@@ -42,6 +42,8 @@ function App() {
     <Route path='/login'element={<Login/>}/>
 
     </Routes>
+
+    </MarkdownProvider>
     </BrowserRouter>
   )
 }
