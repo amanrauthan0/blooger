@@ -16,7 +16,7 @@ export function AuthProvider({ children }) {
 
     async function refresh(){
         try{
-            const res=await fetch("http://localhost:3000/api/auth/refresh-token",{
+            const res=await fetch(`${import.meta.env.VITE_API_URL}/api/auth/refresh-token`,{
                 method:"GET",
                 credentials:"include"
             });
