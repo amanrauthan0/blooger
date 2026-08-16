@@ -12,7 +12,7 @@ export function Home() {
   async function getblogs() {
     try {
       const res = await fetch(
-        "http://localhost:3000/api/blog/blogs"
+        `${import.meta.env.VITE_API_URL}/api/blog/blogs`
       );
 
       const data = await res.json();

@@ -27,7 +27,7 @@ export default function Profile() {
   async function deleteBlog(id) {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/blog/delete/${id}`,
+        `${import.meta.env.VITE_API_URL}//api/blog/delete/${id}`,
         {
           method: "DELETE",
           credentials: "include",
@@ -53,7 +53,7 @@ export default function Profile() {
       setBlogsLoading(true);
 
       const res = await fetch(
-        "http://localhost:3000/api/blog/myblogs",
+        `${import.meta.env.VITE_API_URL}/api/blog/myblogs`,
         {
           method: "GET",
           credentials: "include",

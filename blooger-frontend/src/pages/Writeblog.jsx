@@ -17,7 +17,7 @@ export function Writeblog() {
   async function postblog() {
     try {
       const res = await fetch(
-        "http://localhost:3000/api/blog/postblog",
+        `${import.meta.env.VITE_API_URL}/api/blog/postblog`,
         {
           headers: {
             "Content-Type": "application/json",
