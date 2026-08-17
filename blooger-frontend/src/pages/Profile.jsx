@@ -27,7 +27,7 @@ export default function Profile() {
   async function deleteBlog(id) {
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_API_URL}//api/blog/delete/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/blog/delete/${id}`,
         {
           method: "DELETE",
           credentials: "include",
