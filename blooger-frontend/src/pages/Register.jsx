@@ -96,7 +96,7 @@ export default function Register() {
           </h1>
 
           <p className="text-slate-400 mt-2">
-            Join the community and start sharing your stories.
+            Join the community and start sharing.
           </p>
 
         </div>

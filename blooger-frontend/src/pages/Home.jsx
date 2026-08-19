@@ -49,7 +49,7 @@ export function Home() {
 
           <div>
             <h2 className="text-2xl font-semibold text-slate-100">
-              Latest stories
+              Latest posts
             </h2>
 
             <p className="text-sm text-slate-500 mt-1">
@@ -59,7 +59,7 @@ export function Home() {
 
           {!loading && blogs.length > 0 && (
             <span className="text-sm text-slate-500">
-              {blogs.length} stories
+              {blogs.length} posts
             </span>
           )}
 

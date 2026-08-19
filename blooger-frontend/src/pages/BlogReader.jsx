@@ -88,11 +88,11 @@ export default function BlogReader() {
           </div>
 
           <h1 className="text-2xl font-semibold">
-            Story not found
+            post not found
           </h1>
 
           <p className="text-slate-500 mt-2">
-            This story may have been deleted or doesn't exist.
+            This post may have been deleted or doesn't exist.
           </p>
 
           <Link
@@ -109,7 +109,7 @@ export default function BlogReader() {
               transition
             "
           >
-            Back to stories
+            Back to Home
           </Link>
 
         </div>

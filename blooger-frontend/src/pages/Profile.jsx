@@ -88,7 +88,7 @@ export default function Profile() {
           </h1>
 
           <p className="text-slate-500 mt-2">
-            Manage your account and stories.
+            Manage your account and posts.
           </p>
 
         </div>
@@ -208,7 +208,7 @@ export default function Profile() {
                   transition
                 "
               >
-                + Write a story
+                + Write a post
               </Link>
 
               <button
@@ -247,11 +247,11 @@ export default function Profile() {
               <div>
 
                 <h2 className="text-2xl font-semibold">
-                  Your stories
+                  Your posts
                 </h2>
 
                 <p className="text-slate-500 text-sm mt-1">
-                  Stories you've published.
+                  posts you've published.
                 </p>
 
               </div>
@@ -331,7 +331,7 @@ export default function Profile() {
                 </h3>
 
                 <p className="text-slate-500 mt-2">
-                  Start writing and publish your first story.
+                  Start writing and publish your first post.
                 </p>
 
                 <Link
@@ -470,7 +470,7 @@ export default function Profile() {
                         hover:bg-red-950/40
                         transition
                       "
-                      title="Delete story"
+                      title="Delete post"
                     >
                       🗑
                     </button>
@@ -529,7 +529,7 @@ export default function Profile() {
           </div>
 
           <h2 className="text-xl font-semibold">
-            Delete story?
+            Delete post?
           </h2>
 
           <p className="text-slate-500 mt-3">

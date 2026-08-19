@@ -68,7 +68,7 @@ export function Writeblog() {
           </p>
 
           <h1 className="text-lg font-semibold">
-            Create a story
+            Create a post
           </h1>
 
         </div>
@@ -248,11 +248,11 @@ export function Writeblog() {
           </p>
 
           <h2 className="text-2xl font-semibold mt-2">
-            Give your story a title
+            Give your post a title
           </h2>
 
           <p className="text-slate-500 text-sm mt-2">
-            Choose a title that tells readers what your story is about.
+            Choose a title that tells readers what your post is about.
           </p>
 
 
@@ -260,7 +260,7 @@ export function Writeblog() {
 
           <input
             type="text"
-            placeholder="Enter your title..."
+            placeholder="Enter title..."
             value={blogTitle}
             autoFocus
             onChange={(e) => setBlogTitle(e.target.value)}
@@ -322,7 +322,7 @@ export function Writeblog() {
                 transition
               "
             >
-              Publish story
+              Publish post
             </button>
 
           </div>
